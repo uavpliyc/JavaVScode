@@ -1,10 +1,10 @@
 package com.example.demo.model;
 
 public class CalcModel {
-  public static int a = 0;
-  public static int b = 0;
+  public int a = 0;
+  public int b = 0;
 
-  public static int calc(){
+  public int calc(){
     return a + b;
   }
 }
