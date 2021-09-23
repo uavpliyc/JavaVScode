@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/demo" method="post">
+    <input type="text" name="name">
+    <input type="submit">
+  </form>
+  <h1>Test</h1>
+  <!-- 変数 -->
+  <h1 th:text="${name}"></h1>
+  <h1 th:text="${text}"></h1>
+  <!-- 演算 -->
+  <h1 th:text="(30 * 5)"></h1>
+  <!-- 比較 -->
+  <h1 th:text="1 < 10"></h1>
+  <!-- 条件演算子 -->
+  <h1 th:text="1 < 10 ? 'OK'"></h1>
+  <h1 th:text="1 > 10 ? 'OK':'NG'"></h1>
+  
+</body>
+</html>
