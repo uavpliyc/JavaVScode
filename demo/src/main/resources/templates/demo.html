@@ -2,11 +2,19 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>計算画面</title>
 </head>
 <body>
   <form action="/demo" method="post">
-    <input type="text" name="name">
+    <input type="text" name="param1">
+    <select name="symbol">
+      <option value="＋">＋</option>
+      <option value="−">−</option>
+      <option value="×">×</option>
+      <option value="÷">÷</option>
+      <option value=""></option>
+    </select>
+    <input type="text" name="param2">
     <input type="submit">
   </form>
   <h1>Test</h1>
@@ -24,6 +32,8 @@
   <ul>  
     <li th:each="loop:${list}" th:text="${loop}"></li>
   </ul>
+  <!-- メッセージ -->
+  <h1 th:text="#{sample}"></h1>
   
 </body>
 </html>

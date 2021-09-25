@@ -8,19 +8,45 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import lombok.NonNull;
 
 @Controller
 public class DemoController {
 
-  @RequestMapping(value = "/demo", method = RequestMethod.POST)
-  public void method(@RequestParam("name") String name, Model model) {
-    model.addAttribute("name", "Hello Thymeleaf");
-    model.addAttribute("text", name);
-    List<String> list = new ArrayList<>();
-    list.add("A");
-    list.add("B");
-    list.add("C");
-    model.addAttribute("list", list);
+  @RequestMapping(value = "/demo", method = { RequestMethod.POST, RequestMethod.GET })
+  public ModelAndView method(@RequestParam("param1") String param1,@RequestParam("param2") String param2,@RequestParam("symbol") String symbol, ModelAndView mav, form form) {
 
+    // セッション情報登録
+    mav.addObject("param1", param1);
+    mav.addObject("param2", param2);
+    mav.addObject("symbol", symbol);
+    // 転送
+    mav.setViewName("/result");
+    return mav;
+
+  }
+}
+
+class form {
+  @NonNull
+  private int param1;
+  @NonNull
+  private int param2;
+  @NonNull
+  private String symbol;
+
+  // getter
+  public int getParam1() {
+    return param1;
+  }
+
+  public int getParam2() {
+    return param2;
+  }
+
+  public String getSymbol() {
+    return symbol;
   }
 }
