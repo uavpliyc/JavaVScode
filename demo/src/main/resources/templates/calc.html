@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>計算画面</title>
+</head>
+<body>
+  <form action="/result" method="post">
+    <input type="text" name="param1">
+    <select name="symbol">
+      <option value="＋">＋</option>
+      <option value="−">−</option>
+      <option value="×">×</option>
+      <option value="÷">÷</option>
+      <option value=""></option>
+    </select>
+    <input type="text" name="param2">
+    <input type="submit">
+  </form>
+  
+</body>
+</html>
