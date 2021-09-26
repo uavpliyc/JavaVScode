@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 import com.example.demo.model.CalcModel;
 
 import org.springframework.stereotype.Controller;
@@ -13,19 +16,22 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class DemoController {
 
-  //calcメソッド
+  // calcメソッド
   @RequestMapping(value = "/calc", method = RequestMethod.GET)
   public String calc() {
     return "/calc";
   }
 
-  //resultメソッド
+  // resultメソッド
   @RequestMapping(value = "/result", method = RequestMethod.POST)
   public ModelAndView result(@RequestParam(name = "param1", required = false) Integer param1,
       @RequestParam(name = "param2", required = false) Integer param2,
       @RequestParam(name = "symbol", required = false) String symbol, ModelAndView mav, @Validated form form,
       BindingResult result) {
     if (result.hasErrors()) {
+      // 転送
+      mav.setViewName("/err");
+      return mav;
     }
 
     // セッション情報登録
@@ -41,8 +47,10 @@ public class DemoController {
 }
 
 class form {
+  @NotNull
   private int param1;
   private int param2;
+  @NotEmpty
   private String symbol;
 
   // getter.setter
