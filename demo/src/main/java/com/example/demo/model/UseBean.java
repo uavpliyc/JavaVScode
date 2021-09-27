@@ -1,13 +1,13 @@
-package com.example.demo.model;
-import org.springframework.beans.factory.annotation.Autowired;
+// package com.example.demo.model;
+// import org.springframework.beans.factory.annotation.Autowired;
 
-public class UseBean {
+// public class UseBean {
 
-  @Autowired
-  CalcModel calcmodel;
+//   @Autowired
+//   CalcModel calcmodel;
 
-  public void sample() {
-    System.out.println(calcmodel.calc());
-  }
+//   public void sample() {
+//     System.out.println(calcmodel.Calculate(1,"+",2));
+//   }
 
-}
+// }
